@@ -11,13 +11,14 @@ header {
 .flex-container {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .flex-container .card {
+  width: 400px;
   height: 100%;
   min-height: 0;
-  width: 400px;
-  margin: 5px;
+  margin: 0px 5px 30px 5px;
   border: 1px solid #ccc;
   background: #fff;
   box-sizing: border-box;
@@ -26,8 +27,17 @@ header {
   font-size: 1.5em;
 }
 
+.flex-container .card.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.flex-container .card .card-block {
+  padding-bottom: 20px;
+}
+
 .card-title {
-  padding: 10px;
+  padding: 5px 10px;
   position: absolute;
   background: white;
   top: -20px;
@@ -42,7 +52,11 @@ header {
   padding-right: 10px;
 }
 
-.card .step-1-form label {
-  font-size: 0.8em;
+.card h4 {
+  margin-bottom: 0px;
+}
+
+.label {
   font-style: italic;
+  font-size: 0.6em;
 }

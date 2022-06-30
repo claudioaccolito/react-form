@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Card, Question, SuccessIcon } from "../common";
 
-const Step1 = ({ data, setData }) => {
+const Step1 = ({ setData, disabled }) => {
   const getArrayOf = (n) => [...Array(n).keys()];
   const [names, setNames] = useState([]);
   const [ok, setOk] = useState(false);
@@ -13,15 +13,19 @@ const Step1 = ({ data, setData }) => {
     for (let i = 0; i < e.target.value; i++) {
       totNames.push({
         id: `input-${i + 1}`,
-        name: "",
+        name: names[i] ? names[i].name : "",
       });
     }
     setNames(totNames);
   };
 
   const checkAllInputs = () => {
-    if (names.length > 0) {
-      setOk(names.every((e) => e.name && e.name !== ""));
+    if (names.length > 0 && names.every((e) => e.name && e.name !== "")) {
+      setOk(true);
+      setData(names);
+    } else {
+      setOk(false);
+      setData(null);
     }
   };
 
@@ -35,40 +39,40 @@ const Step1 = ({ data, setData }) => {
     checkAllInputs();
   };
 
-  console.log(names);
-
   return (
-    <Card color="#B2EDCB">
+    <Card title="Step 1" color="#B2EDCB" disabled={disabled}>
       <div>
-        <Question text="How many people will be attending?" />
-        <select
-          onChange={onChangeSelect}
-          id="step-1-select"
-          defaultValue="default"
-        >
-          <option value="default" disabled>
-            Please Choose
-          </option>
-          {getArrayOf(5).map((n) => (
-            <option key={`option-${n + 1}`} value={n + 1}>
-              {n + 1}
+        <div className="card-block">
+          <Question text="How many people will be attending?" />
+          <select
+            onChange={onChangeSelect}
+            id="step-1-select"
+            defaultValue="default"
+          >
+            <option value="default" disabled>
+              Please Choose
             </option>
-          ))}
-        </select>
-        {names.length > 0 && (
-          <div className="step-1-form">
-            <h3>Please provide full names:</h3>
-            {names.map((e, i) => (
-              <div key={`input-${e.id}`}>
-                <label>{`Attendee ${i + 1} Name: `}</label>
-                <input
-                  onChange={(event) => onChangeName(e.id, event)}
-                  type="text"
-                />
-              </div>
+            {getArrayOf(5).map((n) => (
+              <option key={`option-${n + 1}`} value={n + 1}>
+                {n + 1}
+              </option>
             ))}
-          </div>
-        )}
+          </select>
+          {names.length > 0 && (
+            <div className="step-1-form">
+              <h4>Please provide full names:</h4>
+              {names.map((e, i) => (
+                <div key={`input-${e.id}`}>
+                  <label className="label">{`Attendee ${i + 1} Name: `}</label>
+                  <input
+                    onChange={(event) => onChangeName(e.id, event)}
+                    type="text"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
         {ok && <SuccessIcon />}
       </div>
@@ -77,8 +81,12 @@ const Step1 = ({ data, setData }) => {
 };
 
 Step1.propTypes = {
-  data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Step1.defaultProps = {
+  disabled: false,
 };
 
 export default Step1;
