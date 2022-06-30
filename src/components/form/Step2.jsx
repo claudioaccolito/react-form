@@ -18,7 +18,7 @@ const Step2 = ({ setData, disabled }) => {
 
   return (
     <Card title="Step 2" color="#B3DFED" disabled={disabled}>
-      <div>
+      <div data-testid="step2">
         <div className="card-block">
           <Question text="Would you like your company name on your badges?" />
           <YesAndNo

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot of SuccessIcon 1`] = `
+<div
+  data-testid="success-icon"
+  style={
+    Object {
+      "fontSize": "3em",
+      "textAlign": "center",
+    }
+  }
+>
+  ✅
+</div>
+`;

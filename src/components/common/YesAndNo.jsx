@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const YesAndNo = ({ isYes, onChangeRadio }) => (
-  <div>
+  <div data-testid="radio-btns">
     <input
       type="radio"
       value="yes"

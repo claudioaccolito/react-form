@@ -8,7 +8,7 @@ const Step3 = ({ sendAllData, disabled }) => {
 
   return (
     <Card title="Step 3" color="#EECCB4" disabled={disabled}>
-      <div className="card-block">
+      <div data-testid="step3" className="card-block">
         <Question text="Are you ready to rock?" />
         <input
           onChange={() => setReady(!ready)}

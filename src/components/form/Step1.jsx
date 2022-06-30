@@ -41,7 +41,7 @@ const Step1 = ({ setData, disabled }) => {
 
   return (
     <Card title="Step 1" color="#B2EDCB" disabled={disabled}>
-      <div>
+      <div data-testid="step1">
         <div className="card-block">
           <Question text="How many people will be attending?" />
           <select

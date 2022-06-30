@@ -1,7 +1,14 @@
 import React from "react";
 
 const SuccessIcon = () => {
-  return <div style={{ textAlign: "center", fontSize: "3em" }}>{"✅"}</div>;
+  return (
+    <div
+      data-testid="success-icon"
+      style={{ textAlign: "center", fontSize: "3em" }}
+    >
+      {"✅"}
+    </div>
+  );
 };
 
 export default SuccessIcon;

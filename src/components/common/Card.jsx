@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 
 const Card = ({ title, color, children, disabled }) => {
   return (
-    <div
+    <article
+      data-testid="card"
       className={`card ${disabled ? "disabled" : ""}`}
       style={{ background: color }}
     >
       <div className="card-title">{title}</div>
       <div>{children}</div>
-    </div>
+    </article>
   );
 };
 
