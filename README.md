@@ -1,6 +1,6 @@
 # React Form
 
-A simple react form (bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple react form (bootstrapped with [Create React App](https://github.com/facebook/create-react-app)).
 
 The app is available at [http://localhost:9090](http://localhost:9090).
 
