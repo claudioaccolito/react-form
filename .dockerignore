@@ -1,0 +1,14 @@
+# files not required in my build
+Dockerfile
+.dockerignore
+.gitignore
+Dockerfile.prod
+
+# artifacts
+node_modules
+build
+npm-debug.log
+**/.git
+**/.DS_Store
+**/node_modules
+.DS_Store

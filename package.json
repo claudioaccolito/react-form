@@ -24,6 +24,12 @@
       "react-app/jest"
     ]
   },
+  "keywords": [
+    "react",
+    "docker",
+    "eslint",
+    "prettier"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

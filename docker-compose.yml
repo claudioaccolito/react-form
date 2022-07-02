@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  start:
+    container_name: react-app-start
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/mnt'
+      - '/mnt/node_modules'
+    ports:
+      - 9090:9090
+    environment:
+      - CHOKIDAR_USEPOLLING=true 
+  
+  test:
+    container_name: react-app-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/mnt'
+      - '/mnt/node_modules'
+    environment:
+      - CI=true
+    command: npm test
+    
